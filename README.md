@@ -62,8 +62,8 @@ Samtliga klasser och deras medlemmar måste implementeras exakt enligt klassdiag
 #### Metoder
 
 - `constructor`, (👉 REDAN IMPLEMENTERAD) konstruktorns uppgift är att initiera nödvändiga privata medlemmar.
-- `add`, publik metod som lägger till kort i slutet av kortleken.
-- `deal`, publik metod som tar bort det översta kortet i kortleken och returnerar det.
+- `add`, publik metod som lägger till kort till kortleken.
+- `deal`, publik metod som tar bort ett kort ur kortleken och returnerar det.
 - `shuffle`, (👉 REDAN IMPLEMENTERAD) publik metod som blandar korten i kortleken.
 - `toString`, (👉 REDAN IMPLEMENTERAD) publik metod som returnerar en sträng representerande aktuellt objekt (samtliga kort i kortleken).
 
@@ -496,8 +496,8 @@ Samtliga klasser och deras medlemmar måste implementeras exakt enligt klassdiag
 #### Metoder
 
 - `constructor`, konstruktorns uppgift är att initiera nödvändiga privata medlemmar.
-- `add`, publik metod som lägger till kort i slutet av kortleken.
-- `deal`, publik metod som tar bort det översta kortet i kortleken och returnerar det.
+- `add`, publik metod som lägger till kort till kortleken.
+- `deal`, publik metod som tar bort ett kort ur kortleken och returnerar det.
 - `shuffle`, publik metod som blandar korten i kortleken.
 
 ### Hand
