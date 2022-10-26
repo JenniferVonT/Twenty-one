@@ -535,6 +535,7 @@ Samtliga klasser och deras medlemmar måste implementeras exakt enligt klassdiag
 
 - `constructor`, konstruktorns uppgift är att initiera nödvändiga privata medlemmar.
 - `addToHand`, publik metod som lägger till ett kort till spelarens hand.
+- `copy`, publik metod som returnerar en djup kopia av aktuellt objekt.
 - `discardHand`, publik metod som tar bort samtliga kort från spelarens hand och returnerar dem.
 - `toString`, publik metod som returnerar en sträng representerande aktuellt objekt (spelarens namn samt korten spelaren har på sin hand och dess värde, eller ett streck om handen är tom).
 - `valueOf`, publik metod som returnerar ett tal representerande aktuellt objekt (värdet av spelarens hand).
