@@ -1,6 +1,6 @@
 /**
- * The starting point of the application.
- *
+ * @file The starting point of the application.
+ * @module src/app
  * @author Johan Leitet <johan.leitet@lnu.se>
  * @author Mats Loock <mats.loock@lnu.se>
  * @author // TODO: YOUR NAME <YOUR EMAIL>

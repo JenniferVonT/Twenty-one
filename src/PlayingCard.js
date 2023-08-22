@@ -1,6 +1,6 @@
 /**
- * Module for the class PlayingCard.
- *
+ * @file Module for the class PlayingCard.
+ * @module src/PlayingCard
  * @author Johan Leitet <johan.leitet@lnu.se>
  * @author Mats Loock <mats.loock@lnu.se>
  * @version 2.0.0

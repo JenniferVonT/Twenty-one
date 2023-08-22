@@ -1,6 +1,6 @@
 /**
- * Module for the class Deck.
- *
+ * @file Module for the class Deck.
+ * @module src/Deck
  * @author Johan Leitet <johan.leitet@lnu.se>
  * @author Mats Loock <mats.loock@lnu.se>
  * @author // TODO: YOUR NAME <YOUR EMAIL>
