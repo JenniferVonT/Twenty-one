@@ -22,3 +22,7 @@ try {
 } catch (e) {
   console.error(e.message)
 }
+
+const deck1 = new Deck()
+
+console.log(deck1.count)

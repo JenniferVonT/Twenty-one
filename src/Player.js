@@ -5,4 +5,4 @@
  * @version 2.0.0
  */
 
-import { PlayingCard } from "./PlayingCard"
+import { PlayingCard } from './PlayingCard'

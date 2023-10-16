@@ -34,6 +34,15 @@ export class Deck {
   }
 
   /**
+   * Returns the current amount of cards in the deck.
+   *
+   * @returns {number} - Amount of cards left.
+   */
+  get count () {
+    return this.#playingCards.length
+  }
+
+  /**
    * Shuffles the array of playing cards in place.
    */
   shuffle () {
