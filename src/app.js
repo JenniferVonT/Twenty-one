@@ -27,3 +27,6 @@ const deck1 = new Deck()
 
 console.log(deck1.count)
 
+console.log(deck1.deal())
+
+console.log(deck1.count)

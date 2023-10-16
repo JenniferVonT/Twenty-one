@@ -53,9 +53,12 @@ export class Deck {
   /**
    * Deals the card from the top of the deck.
    *
-   * @returns {PlayingCard}
+   * @returns {PlayingCard} - The card that is dealt.
    */
-  deal () {}
+  deal () {
+    const dealtCard = this.#playingCards.pop()
+    return dealtCard
+  }
 
   /**
    * Shuffles the array of playing cards in place.
