@@ -33,3 +33,7 @@ console.log(player2.isBusted)
 
 console.log(player1.nickname)
 console.log(player2.nickname)
+
+player1.addToHand()
+
+console.log(player1.hand)

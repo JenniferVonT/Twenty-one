@@ -78,4 +78,10 @@ export class Player {
   get nickname () {
     return this.#nickname
   }
+
+  /**
+   * Adds a card to the players hand.
+   */
+  addToHand () {
+  }
 }
