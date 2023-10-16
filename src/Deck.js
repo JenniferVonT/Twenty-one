@@ -3,7 +3,7 @@
  * @module src/Deck
  * @author Johan Leitet <johan.leitet@lnu.se>
  * @author Mats Loock <mats.loock@lnu.se>
- * @author // TODO: YOUR NAME <YOUR EMAIL>
+ * @author Jennifer von Trotta-Treyden <jv222th@student.lnu.se>
  * @version 2.0.0
  */
 
