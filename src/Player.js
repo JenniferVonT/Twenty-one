@@ -8,6 +8,10 @@
 import { PlayingCard } from './PlayingCard'
 
 /**
+ * Represents the player.
+ */
+export class Player {
+/**
  * The players cards on hand.
  *
  * @type {PlayingCard[]}
@@ -27,3 +31,9 @@ import { PlayingCard } from './PlayingCard'
  * @type {number}
  */
 #standValue
+
+constructor (nickname: String, standValue: number = 14) {
+    this.#nickname = nickname
+    this.#standValue = standValue
+}
+}
