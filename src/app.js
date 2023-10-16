@@ -27,6 +27,15 @@ const deck1 = new Deck()
 
 console.log(deck1.count)
 
+deck1.shuffle()
+
 console.log(deck1.deal())
+console.log(deck1.deal())
+
+console.log(deck1.toString(), '\n')
+
+console.log(deck1.count)
+
+console.log(deck1.add())
 
 console.log(deck1.count)

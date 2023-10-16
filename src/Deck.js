@@ -57,7 +57,7 @@ export class Deck {
    */
   deal () {
     const dealtCard = this.#playingCards.pop()
-    return dealtCard
+    return dealtCard.toString()
   }
 
   /**
