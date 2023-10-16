@@ -25,5 +25,8 @@ try {
 }
 
 const player1 = new Player('player1', 16)
+const player2 = new Player('player2', 25)
 
 console.log(player1.canHit)
+
+console.log(player2.isBusted)

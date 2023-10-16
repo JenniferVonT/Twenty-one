@@ -52,4 +52,13 @@ export class Player {
   get canHit () {
     return (this.#standValue < 14)
   }
+
+  /**
+   * If the players hand is bigger than 21 return true, otherwise false.
+   *
+   * @returns {boolean} - If the player is busted (true) or not (false).
+   */
+  get isBusted () {
+    return (this.#standValue > 21)
+  }
 }
