@@ -6,3 +6,24 @@
  */
 
 import { PlayingCard } from './PlayingCard'
+
+/**
+ * The players cards on hand.
+ *
+ * @type {PlayingCard[]}
+ */
+#hand
+
+/**
+ * The players nickname.
+ *
+ * @type {string}
+ */
+#nickname
+
+/**
+ * The value sum of the cards on the players hand.
+ *
+ * @type {number}
+ */
+#standValue
