@@ -24,9 +24,12 @@ try {
   console.error(e.message)
 }
 
-const player1 = new Player('player1', 16)
-const player2 = new Player('player2', 25)
+const player1 = new Player('Favourite', 16)
+const player2 = new Player('Underdog', 25)
 
 console.log(player1.canHit)
 
 console.log(player2.isBusted)
+
+console.log(player1.nickname)
+console.log(player2.nickname)

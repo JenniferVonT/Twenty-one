@@ -61,4 +61,21 @@ export class Player {
   get isBusted () {
     return (this.#standValue > 21)
   }
+
+  /**
+   * If the player is a natural winner return true, otherwise false.
+   *
+   * @returns {boolean} - If the player is a natural winner return true.
+   */
+  get isNaturalWinner () {
+  }
+
+  /**
+   * Returns the nickname of the player.
+   *
+   * @returns {string} - The players nickname.
+   */
+  get nickname () {
+    return this.#nickname
+  }
 }
