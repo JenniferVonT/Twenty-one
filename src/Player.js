@@ -5,8 +5,7 @@
  * @version 2.0.0
  */
 
-import { PlayingCard } from './PlayingCard'
-
+import { PlayingCard } from './PlayingCard.js'
 /**
  * Represents the player.
  */
@@ -43,5 +42,14 @@ export class Player {
     this.#standValue = standValue
 
     this.#hand = []
+  }
+
+  /**
+   * If the value on the players hand is less than 14, return true otherwise false.
+   *
+   * @returns {boolean} - If the player can hit or not.
+   */
+  get canHit () {
+    return (this.#standValue < 14)
   }
 }

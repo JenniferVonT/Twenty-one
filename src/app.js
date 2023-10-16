@@ -10,6 +10,7 @@
 // TODO: Replace the code below with your own game logic.
 
 import { Deck } from './Deck.js'
+import { Player } from './Player.js'
 
 try {
   // Create a deck, view its 52 playing cards,...
@@ -23,26 +24,6 @@ try {
   console.error(e.message)
 }
 
-const deck1 = new Deck()
+const player1 = new Player('player1', 16)
 
-console.log(deck1.count)
-
-deck1.shuffle()
-
-console.log(deck1.deal())
-console.log(deck1.deal())
-console.log(deck1.deal())
-console.log(deck1.deal())
-console.log(deck1.deal())
-
-console.log(deck1.toString(), '\n')
-
-console.log(deck1.count)
-
-console.log(deck1.toString(), '\n')
-
-deck1.add()
-
-console.log(deck1.count)
-
-console.log(deck1.toString(), '\n')
+console.log(player1.canHit)
