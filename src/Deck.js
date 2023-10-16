@@ -43,6 +43,21 @@ export class Deck {
   }
 
   /**
+   * Add cards back to the dealer-pile.
+   *
+   * @returns {playingCards[]} - a full deck again.
+   */
+  add () {
+  }
+
+  /**
+   * Deals the card from the top of the deck.
+   *
+   * @returns {PlayingCard}
+   */
+  deal () {}
+
+  /**
    * Shuffles the array of playing cards in place.
    */
   shuffle () {
