@@ -11,7 +11,7 @@
 
 import { Deck } from './Deck.js'
 import { Player } from './Player.js'
-
+/*
 try {
   // Create a deck, view its 52 playing cards,...
   const deck = new Deck()
@@ -37,3 +37,21 @@ console.log(player2.nickname)
 player1.addToHand()
 
 console.log(player1.hand)
+*/
+const Deck1 = new Deck()
+
+console.log(Deck1.toString(), '\n')
+Deck1.shuffle()
+console.log(Deck1.count)
+
+console.log(Deck1.toString(), '\n')
+
+console.log(Deck1.deal())
+console.log(Deck1.deal())
+
+console.log(Deck1.count)
+
+console.log(Deck1.toString(), '\n')
+
+console.log(Deck1.toString(), '\n')
+console.log(Deck1.count)

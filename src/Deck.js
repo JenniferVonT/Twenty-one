@@ -21,18 +21,10 @@ export class Deck {
   #playingCards
 
   /**
-   * Discard pile of cards.
-   *
-   * @type {Array} - An array of all the dealt/discarded cards.
-   */
-  #discardPile
-
-  /**
    * Initializes a new instance of the Deck class.
    */
   constructor () {
     this.#playingCards = []
-    this.#discardPile = []
 
     for (const suit of PlayingCard.suits) {
       for (const rank of PlayingCard.ranks) {
@@ -57,16 +49,16 @@ export class Deck {
    */
   deal () {
     const dealtCard = this.#playingCards.pop().toString()
-    this.#discardPile.push(dealtCard)
     return dealtCard
   }
 
   /**
-   * Add cards back to the deck.
+   * Add the discarded cards back to the deck.
    *
+   * @param {PlayingCard[]} playingCards - An array representing a deck of cards.
    */
-  add () {
-    this.#playingCards = this.#playingCards.concat(this.#discardPile)
+  add (playingCards) {
+    this.#playingCards += playingCards
   }
 
   /**

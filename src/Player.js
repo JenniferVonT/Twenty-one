@@ -83,5 +83,5 @@ export class Player {
    * Adds a card to the players hand.
    */
   addToHand () {
-  }
+  } 
 }
