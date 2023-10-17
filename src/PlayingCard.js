@@ -10,8 +10,8 @@
  * Represents a playing card.
  */
 export class PlayingCard {
-  static ranks = Object.freeze([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13])
-  static suits = Object.freeze(['♣', '♦', '♥', '♠'])
+  static ranks = Object.freeze([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]) // Make the ranks into an immutable object (array, with all values from 1-13)
+  static suits = Object.freeze(['♣', '♦', '♥', '♠']) // Do the same with the suits.
 
   /**
    * Creates a new PlayingCard object.
