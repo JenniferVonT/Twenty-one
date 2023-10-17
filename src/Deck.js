@@ -26,9 +26,9 @@ export class Deck {
   constructor () {
     this.#playingCards = []
 
-    for (const suit of PlayingCard.suits) {
-      for (const rank of PlayingCard.ranks) {
-        this.#playingCards.push(new PlayingCard(rank, suit))
+    for (const suit of PlayingCard.suits) { // For every suit of the PlayingCard array.
+      for (const rank of PlayingCard.ranks) { // And for every rank of the PlayingCard array.
+        this.#playingCards.push(new PlayingCard(rank, suit)) // Push the combined suit and rank into the empty #playingCards array until all combinations are completed.
       }
     }
   }
@@ -48,6 +48,7 @@ export class Deck {
    * @returns {PlayingCard} - The card that is dealt.
    */
   deal () {
+    // Put the last card of the deck (array) in the dealtCard constant and use the toString method to display the suit and rank together.
     const dealtCard = this.#playingCards.pop().toString()
     return dealtCard
   }
@@ -58,7 +59,7 @@ export class Deck {
    * @param {PlayingCard[]} playingCards - An array representing a deck of cards.
    */
   add (playingCards) {
-    this.#playingCards += playingCards
+    this.#playingCards += playingCards // The remaining cards in the pile += The discarded card deck.
   }
 
   /**
@@ -77,6 +78,6 @@ export class Deck {
    * @returns {string} A string that represents the current object.
    */
   toString () {
-    return this.#playingCards.join(' ')
+    return this.#playingCards.join(' ') // Join the suit and rank combinations into one string to represent the cards.
   }
 }
