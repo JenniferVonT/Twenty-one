@@ -81,7 +81,24 @@ export class Player {
 
   /**
    * Adds a card to the players hand.
+   *
+   * @param {PlayingCard} playingCard - Add a card to the hand.
    */
-  addToHand () {
-  } 
+  addToHand (playingCard) {
+    this.#hand += playingCard
+  }
+
+  /**
+   * Removes all the cards on hand and returns them.
+   *
+   * @returns {PlayingCard[]} - returns an array of the players cards on hand.
+   */
+  discardHand () {
+    const length = this.#hand.lenght
+    let showHand = []
+    for (let i = length; i > 0; i--) {
+      showHand += this.#hand.pop()
+    }
+    return showHand
+  }
 }

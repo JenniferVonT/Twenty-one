@@ -11,6 +11,7 @@
 
 import { Deck } from './Deck.js'
 import { Player } from './Player.js'
+import { PlayingCard } from './PlayingCard.js'
 /*
 try {
   // Create a deck, view its 52 playing cards,...
@@ -23,6 +24,10 @@ try {
 } catch (e) {
   console.error(e.message)
 }
+*/
+
+const Deck1 = new Deck()
+Deck1.shuffle()
 
 const player1 = new Player('Favourite', 16)
 const player2 = new Player('Underdog', 25)
@@ -34,10 +39,7 @@ console.log(player2.isBusted)
 console.log(player1.nickname)
 console.log(player2.nickname)
 
-player1.addToHand()
-
-console.log(player1.hand)
-*/
+/*
 const Deck1 = new Deck()
 
 console.log(Deck1.toString(), '\n')
@@ -55,3 +57,4 @@ console.log(Deck1.toString(), '\n')
 
 console.log(Deck1.toString(), '\n')
 console.log(Deck1.count)
+*/
