@@ -125,12 +125,12 @@ export class Player {
    */
   toString () {
     let hand = this.#hand
-    const sumOfHand = this.#hand.reduce((a, b) => a + b, 0)
+    const sumOfHand = this.valueOf()
 
     if (this.#hand.length === 0) {
       hand = '-'
     }
 
-    return `${this.#nickname}, ${hand}, ${sumOfHand.toString()}`
+    return `${this.#nickname}, ${hand}, ${sumOfHand}`
   }
 }
