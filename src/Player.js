@@ -68,6 +68,13 @@ export class Player {
    * @returns {boolean} - If the player is a natural winner return true.
    */
   get isNaturalWinner () {
+    if (this.valueOf() === 21) {
+      return true
+    } else if (this.#hand.length === 5 && this.valueOf() < 21) {
+      return true
+    } else {
+      return false
+    }
   }
 
   /**
