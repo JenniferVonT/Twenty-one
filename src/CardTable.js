@@ -73,4 +73,13 @@ export class CardTable {
       return 'Player wins! 🎉'
     }
   }
+
+  /**
+   * Deals the next card in the deck.
+   *
+   * @returns {PlayingCard[]} - The next card in the card deck.
+   */
+  #deal () {
+    return this.#deck.deal()
+  }
 }
