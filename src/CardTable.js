@@ -42,12 +42,12 @@ export class CardTable {
   #players
 
   /**
-   * Initiate all the players.
+   * Initiate all the players between 1-5.
    *
    * @param {number} numberOfPlayers - the amount of players in the game.
    */
-  constructor (numberOfPlayers = 1) {
-    this.#dealer = new Player('Dealer', 16)
+  constructor (numberOfPlayers = 3) {
+    this.#dealer = new Player('Dealer', 14)
     this.#deck = new Deck()
     this.#discardPile = []
     this.#players = []
@@ -101,6 +101,20 @@ export class CardTable {
       do {
         dealer.addToHand(this.#deal)
       } while (dealer.canHit)
+    }
+  }
+
+  /**
+   * Plays the game 21 and returns the results after each round.
+   *
+   * @param {number} numberOfRounds - The amount of rounds in a game.
+   */
+  playRounds (numberOfRounds = 1) {
+    for (let i = 0; i < numberOfRounds; i++) {
+      for (let i = 1; i <= this.#players.length;) {
+        const currentPlayer = this.#players.pop()
+        this.#playOut(this.#dealer, currentPlayer)
+      }
     }
   }
 }
