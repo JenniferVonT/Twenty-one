@@ -25,7 +25,7 @@ export class Player {
   #nickname
 
   /**
-   * The value sum of the cards on the players hand.
+   * The value sum of the cards on the players hand where the player stands.
    *
    * @type {number}
    */
@@ -100,5 +100,21 @@ export class Player {
       showHand += this.#hand.pop()
     }
     return showHand
+  }
+
+  /**
+   * Returns a string representing the class object.
+   *
+   * @returns {string} - A string gathering info about player
+   */
+  toString () {
+    let hand = this.#hand
+    const sumOfHand = this.#hand.reduce((a, b) => a + b, 0)
+
+    if (this.#hand.length === 0) {
+      hand = '-'
+    }
+
+    return `${this.#nickname}, ${hand}, ${sumOfHand.toString()}`
   }
 }
