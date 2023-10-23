@@ -110,10 +110,16 @@ export class CardTable {
    * @param {number} numberOfRounds - The amount of rounds in a game.
    */
   playRounds (numberOfRounds = 1) {
+    // Start a counter for every round.
     for (let i = 0; i < numberOfRounds; i++) {
+      // Start a counter for the number of players in the game, every player plays once every round and the dealer plays against all players.
       for (let i = 1; i <= this.#players.length;) {
         const currentPlayer = this.#players.pop()
+        // The player plays a round against the dealer.
         this.#playOut(this.#dealer, currentPlayer)
+        // If the player busted or is a natural winner, return the rounds result.
+        // Otherwise if the dealer busted or is a natural winner, return the rounds result.
+        // Otherwise compare hands and return the result.
       }
     }
   }
