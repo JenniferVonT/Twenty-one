@@ -53,7 +53,7 @@ export class CardTable {
     this.#players = []
 
     for (let i = 1; i <= numberOfPlayers; i++) {
-      const standValue = (Math.floor(Math.random()) * 6) + 13
+      const standValue = (Math.floor(Math.random()) * 4) + 13
 
       this.#players.push(new Player(`Player #${i}`, standValue))
     }
@@ -93,7 +93,14 @@ export class CardTable {
     this.#deck.shuffle() // Shuffle the deck first.
 
     do {
-        player.addToHand(this.#deal) // Remove the top card from the deck and give to the players hand.
-    } while (player.)
+      player.addToHand(this.#deal) // Remove the top card from the deck and give to the players hand.
+    } while (player.canHit) // As long as the stand value is not met.
+
+    // If the player doesn't bust or isn't a natural winner. Play a round with the dealer the same way as the player.
+    if (!player.isBusted || !player.isNaturalWinner) {
+      do {
+        dealer.addToHand(this.#deal)
+      } while (dealer.canHit)
+    }
   }
 }

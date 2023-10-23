@@ -7,10 +7,8 @@
  * @version 2.0.0
  */
 
-// TODO: Replace the code below with your own game logic.
-
 import { CardTable } from './CardTable.js'
 
-const gameTest = new CardTable(5)
+const gameTest = new CardTable()
 
 console.log(gameTest)
