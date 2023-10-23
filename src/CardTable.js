@@ -55,7 +55,7 @@ export class CardTable {
     for (let i = 1; i <= numberOfPlayers; i++) {
       const standValue = (Math.floor(Math.random()) * 6) + 13
 
-      this.#players.push(new Player(`Player ${i}`, standValue))
+      this.#players.push(new Player(`Player #${i}`, standValue))
     }
   }
 
@@ -81,5 +81,19 @@ export class CardTable {
    */
   #deal () {
     return this.#deck.deal()
+  }
+
+  /**
+   * One round of the game 21.
+   *
+   * @param {Player} dealer - The dealers round.
+   * @param {Player} player - The players round.
+   */
+  #playOut (dealer, player) {
+    this.#deck.shuffle() // Shuffle the deck first.
+
+    do {
+        player.addToHand(this.#deal) // Remove the top card from the deck and give to the players hand.
+    } while (player.)
   }
 }

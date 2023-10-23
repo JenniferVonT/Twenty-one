@@ -51,7 +51,7 @@ export class Player {
    * @returns {boolean} - If the player can hit or not.
    */
   get canHit () {
-    return (this.#standValue < 14)
+    return (this.#hand < this.#standValue)
   }
 
   /**
