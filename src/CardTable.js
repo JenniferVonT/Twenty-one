@@ -58,4 +58,12 @@ export class CardTable {
       this.#players.push(new Player(`Player ${i}`, standValue))
     }
   }
+
+  /**
+   * Compare the dealers hand with the players hand and returns the winner.
+   *
+   * @param {Player} dealer - The dealers hand.
+   * @param {Player} player - The players hand.
+   */
+  #compareHands (dealer, player) {}
 }
