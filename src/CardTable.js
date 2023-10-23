@@ -8,3 +8,10 @@
 import { PlayingCard } from './PlayingCard.js'
 import { Player } from './Player.js'
 import { Deck } from './Deck.js'
+
+/**
+ * Represents a Card Table.
+ */
+export class CardTable {
+    
+}

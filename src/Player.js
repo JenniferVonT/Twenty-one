@@ -6,6 +6,7 @@
  */
 
 import { PlayingCard } from './PlayingCard.js'
+
 /**
  * Represents the player.
  */
