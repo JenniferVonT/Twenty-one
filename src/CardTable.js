@@ -64,6 +64,13 @@ export class CardTable {
    *
    * @param {Player} dealer - The dealers hand.
    * @param {Player} player - The players hand.
+   * @returns {string} - Returns a string saying who the winner is.
    */
-  #compareHands (dealer, player) {}
+  #compareHands (dealer, player) {
+    if (dealer.valueOf() > player.valueOf()) {
+      return 'Dealer wins! ☹️'
+    } else {
+      return 'Player wins! 🎉'
+    }
+  }
 }
