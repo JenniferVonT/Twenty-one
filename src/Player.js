@@ -103,6 +103,15 @@ export class Player {
   }
 
   /**
+   * Returns the value sum of the players hand.
+   *
+   * @returns {number} - The sum of all the cards on hand.
+   */
+  valueOf () {
+    return this.#hand.reduce((a, b) => a + b, 0)
+  }
+
+  /**
    * Returns a string representing the class object.
    *
    * @returns {string} - A string gathering info about player

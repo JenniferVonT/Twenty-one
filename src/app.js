@@ -16,6 +16,8 @@ import { PlayingCard } from './PlayingCard.js'
 const newPlayer = new Player('Jenny', 10)
 
 console.log(newPlayer.toString())
+
+console.log(newPlayer.valueOf())
 /*
 try {
   // Create a deck, view its 52 playing cards,...
