@@ -40,4 +40,22 @@ export class CardTable {
    * @type {Player[]}
    */
   #players
+
+  /**
+   * Initiate all the players.
+   *
+   * @param {number} numberOfPlayers - the amount of players in the game.
+   */
+  constructor (numberOfPlayers = 1) {
+    this.#dealer = new Player('Dealer', 16)
+    this.#deck = new Deck()
+    this.#discardPile = []
+    this.#players = []
+
+    for (let i = 1; i <= numberOfPlayers; i++) {
+      const standValue = (Math.floor(Math.random()) * 6) + 13
+
+      this.#players.push(new Player(`Player ${i}`, standValue))
+    }
+  }
 }
