@@ -51,7 +51,7 @@ export class Player {
    * @returns {boolean} - If the player can hit or not.
    */
   get canHit () {
-    return (this.#hand < this.#standValue)
+    return (this.valueOf(this.#hand) < this.#standValue)
   }
 
   /**
@@ -116,7 +116,13 @@ export class Player {
    * @returns {number} - The sum of all the cards on hand.
    */
   valueOf () {
-    return this.#hand.reduce((a, b) => a + b, 0)
+    const sum = []
+
+    for (let i = 0; i < this.#hand.length; i++) {
+      sum.push(parseInt(this.#hand[i].toString()))
+    }
+
+    return sum.reduce((a, b) => a + b, 0)
   }
 
   /**
@@ -125,7 +131,7 @@ export class Player {
    * @returns {string} - A string gathering info about player
    */
   toString () {
-    let hand = `, ${this.#hand}`
+    let hand = ` ${this.#hand}`
     let sumOfHand = `, (${this.valueOf()})`
 
     if (this.#hand.length === 0) {
@@ -133,6 +139,6 @@ export class Player {
       sumOfHand = ''
     }
 
-    return `${this.#nickname}${hand}${sumOfHand}`
+    return `${this.#nickname}:${hand}${sumOfHand}`
   }
 }

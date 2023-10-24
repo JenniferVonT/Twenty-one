@@ -100,7 +100,7 @@ export class CardTable {
     // If the player doesn't bust or isn't a natural winner. Play a round with the dealer the same way as the player.
     if (!player.isBusted || !player.isNaturalWinner) {
       do {
-        dealer.addToHand(this.#deal)
+        dealer.addToHand(this.#deal())
       } while (dealer.canHit)
     }
   }
