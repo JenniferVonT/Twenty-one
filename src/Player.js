@@ -108,7 +108,8 @@ export class Player {
    * @returns {PlayingCard[]} - returns an array of the players cards on hand.
    */
   discardHand () {
-    const throwHand = this.#hand
+    const throwHand = []
+    throwHand.pop(this.#hand)
     return throwHand
   }
 
@@ -134,7 +135,12 @@ export class Player {
       } else if (number.charAt(0) === 'A' && (sum + 14) < 21) {
         number = 14
       }
-      sum.push(parseInt(number.toString()))
+
+      if (typeof number === 'number') {
+        sum.push(number)
+      } else {
+        sum.push(parseInt(number.toString()))
+      }
     }
 
     return sum.reduce((a, b) => a + b, 0)
