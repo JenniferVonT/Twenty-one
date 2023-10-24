@@ -119,7 +119,20 @@ export class Player {
     const sum = []
 
     for (let i = 0; i < this.#hand.length; i++) {
-      sum.push(parseInt(this.#hand[i].toString()))
+      let number = this.#hand[i]
+
+      if (number.charAt(0) === 'J') {
+        number = 11
+      } else if (number.charAt(0) === 'Q') {
+        number = 12
+      } else if (number.charAt(0) === 'K') {
+        number = 13
+      } else if (number.charAt(0) === 'A' && sum + 14 > 21) {
+        number = 1
+      } else if (number.charAt(0) === 'A' && sum + 14 < 21) {
+        number = 14
+      }
+      sum.push(parseInt(number.toString()))
     }
 
     return sum.reduce((a, b) => a + b, 0)
@@ -132,7 +145,7 @@ export class Player {
    */
   toString () {
     let hand = ` ${this.#hand}`
-    let sumOfHand = `, (${this.valueOf()})`
+    let sumOfHand = ` (${this.valueOf()})`
 
     if (this.#hand.length === 0) {
       hand = ' -'
