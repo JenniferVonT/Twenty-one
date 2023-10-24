@@ -47,7 +47,7 @@ export class CardTable {
    * @param {number} numberOfPlayers - the amount of players in the game.
    */
   constructor (numberOfPlayers = 3) {
-    this.#dealer = new Player('Dealer', 14)
+    this.#dealer = new Player('Dealer', 15)
     this.#deck = new Deck()
     this.#discardPile = []
     this.#players = []
@@ -68,10 +68,14 @@ export class CardTable {
    * @returns {string} - Returns a string saying who the winner is.
    */
   #compareHands (dealer, player) {
-    if (dealer.valueOf() > player.valueOf()) {
-      return 'Dealer wins! ☹️'
+    if (player.isBusted || dealer.isNaturalWinner) {
+      return 'Dealer wins! ☹️ '
+    } else if (player.isNaturalWinner || dealer.isBusted) {
+      return `${player.nickname} wins! 🎉 `
+    } else if (player.valueOf() > dealer.valueOf()) {
+      return `${player.nickname} wins! 🎉 `
     } else {
-      return `${player.nickname} wins! 🎉`
+      return 'Dealer wins! ☹️ '
     }
   }
 
@@ -91,16 +95,14 @@ export class CardTable {
    * @param {Player} player - The players round.
    */
   #playOut (dealer, player) {
-    this.#deck.shuffle() // Shuffle the deck first.
-
     do {
-      player.addToHand(this.#deal()) // Remove the top card from the deck and give to the players hand.
+      player.addToHand(this.#deck.deal()) // Remove the top card from the deck and give to the players hand.
     } while (player.canHit) // As long as the stand value is not met.
 
     // If the player doesn't bust or isn't a natural winner. Play a round with the dealer the same way as the player.
     if (!player.isBusted || !player.isNaturalWinner) {
       do {
-        dealer.addToHand(this.#deal())
+        dealer.addToHand(this.#deck.deal())
       } while (dealer.canHit)
     }
   }
@@ -112,34 +114,40 @@ export class CardTable {
    * @returns {string} - The result of the game.
    */
   playRounds (numberOfRounds = 1) {
+    this.#deck.shuffle() // Shuffle the deck first.
     const result = []
     const playersResult = []
 
     // Start a counter for every round.
     for (let round = 1; round <= numberOfRounds; round++) {
-      let winner = ''
-
-      // Start a counter for the number of players in the game, every player play once every round and the dealer plays against all players.
+      // Start a counter for the number of players in the game, every player plays once every round and the dealer plays against all players.
       for (let player = 1; player <= this.#players.length;) {
-        const currentPlayer = this.#players.pop()
+        let winner = ''
+
+        const currentPlayer = this.#players.shift()
 
         // The player plays a round against the dealer.
         this.#playOut(this.#dealer, currentPlayer)
 
         // Decide if the player or dealer busted.
-        let busted = ' '
-        if (currentPlayer.isBusted || this.#dealer.isBusted) {
-          busted = ' BUSTED!'
+        let bustedPlayer = ' '
+        let bustedDealer = ' '
+        if (currentPlayer.isBusted) {
+          bustedPlayer = ' BUSTED! '
+        } else if (this.#dealer.isBusted) {
+          bustedDealer = ' BUSTED! '
         }
 
         // Otherwise compare hands and return the result.
         winner = this.#compareHands(this.#dealer, currentPlayer)
 
-        playersResult.push(`${currentPlayer.toString()}${busted}` + `${this.#dealer.toString()}${busted}`)
+        playersResult.push(`${currentPlayer.toString()} ${bustedPlayer} ${this.#dealer.toString()} ${bustedDealer} ${winner}`)
+
         // Throw all the cards from both hands into the discard pile.
+        this.#discardPile.push(currentPlayer.discardHand() + this.#dealer.discardHand())
       }
-      result.push(`Round #${round} --------------- ${playersResult} ${winner}`)
+      result.push(`Round #${round} --------------- ${playersResult}`)
     }
-    return result
+    return result.toString()
   }
 }

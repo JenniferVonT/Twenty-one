@@ -51,7 +51,11 @@ export class Player {
    * @returns {boolean} - If the player can hit or not.
    */
   get canHit () {
-    return (this.valueOf(this.#hand) < this.#standValue)
+    if (this.valueOf() < this.#standValue) {
+      return true
+    } else {
+      return false
+    }
   }
 
   /**
@@ -60,7 +64,11 @@ export class Player {
    * @returns {boolean} - If the player is busted (true) or not (false).
    */
   get isBusted () {
-    return (this.#standValue > 21)
+    if (this.valueOf() > 21) {
+      return true
+    } else {
+      return false
+    }
   }
 
   /**
@@ -69,9 +77,7 @@ export class Player {
    * @returns {boolean} - If the player is a natural winner return true.
    */
   get isNaturalWinner () {
-    if (this.valueOf() === 21) {
-      return true
-    } else if (this.#hand.length === 5 && this.valueOf() < 21) {
+    if (this.valueOf() === 21 && (this.#hand.length === 5 && this.valueOf() < 21)) {
       return true
     } else {
       return false
@@ -102,12 +108,8 @@ export class Player {
    * @returns {PlayingCard[]} - returns an array of the players cards on hand.
    */
   discardHand () {
-    const length = this.#hand.lenght
-    let showHand = []
-    for (let i = length; i > 0; i--) {
-      showHand += this.#hand.pop()
-    }
-    return showHand
+    const throwHand = this.#hand
+    return throwHand
   }
 
   /**
@@ -127,9 +129,9 @@ export class Player {
         number = 12
       } else if (number.charAt(0) === 'K') {
         number = 13
-      } else if (number.charAt(0) === 'A' && sum + 14 > 21) {
+      } else if (number.charAt(0) === 'A' && (sum + 14) > 21) {
         number = 1
-      } else if (number.charAt(0) === 'A' && sum + 14 < 21) {
+      } else if (number.charAt(0) === 'A' && (sum + 14) < 21) {
         number = 14
       }
       sum.push(parseInt(number.toString()))
