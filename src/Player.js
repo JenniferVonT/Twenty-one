@@ -93,7 +93,7 @@ export class Player {
    * @param {PlayingCard} playingCard - Add a card to the hand.
    */
   addToHand (playingCard) {
-    this.#hand += playingCard
+    this.#hand.push(playingCard)
   }
 
   /**
@@ -125,13 +125,14 @@ export class Player {
    * @returns {string} - A string gathering info about player
    */
   toString () {
-    let hand = this.#hand
-    const sumOfHand = this.valueOf()
+    let hand = `, ${this.#hand}`
+    let sumOfHand = `, (${this.valueOf()})`
 
     if (this.#hand.length === 0) {
-      hand = '-'
+      hand = ' -'
+      sumOfHand = ''
     }
 
-    return `${this.#nickname}, ${hand}, ${sumOfHand}`
+    return `${this.#nickname}${hand}${sumOfHand}`
   }
 }
