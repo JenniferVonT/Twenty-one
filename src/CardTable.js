@@ -104,7 +104,7 @@ export class CardTable {
     }
 
     // If the player doesn't bust or isn't a natural winner. Play a round with the dealer the same way as the player.
-    if (!(player.isNaturalWinner || player.isBusted)) {
+    if ((player.isNaturalWinner || player.isBusted)) {
       while (dealer.canHit) {
         if (this.#deck.length === 1) {
           this.#deck.add(this.#discardPile)
@@ -113,8 +113,6 @@ export class CardTable {
         dealer.addToHand(this.#deal())
       }
     }
-    // Throw all the cards from both hands into the discard pile.
-    this.#discardPile.push(player.discardHand() + this.#dealer.discardHand())
   }
 
   /**
@@ -160,6 +158,9 @@ export class CardTable {
         winner = this.#compareHands(this.#dealer, currentPlayer)
 
         playersResult.push(`${currentPlayer.toString()} ${bustedPlayer} ${this.#dealer.toString()} ${bustedDealer} ${winner}`)
+
+        // Throw all the cards from both hands into the discard pile.
+        this.#discardPile.push(currentPlayer.discardHand() + this.#dealer.discardHand())
       }
       result.push(`Round #${round} --------------- ${playersResult}`)
     }
