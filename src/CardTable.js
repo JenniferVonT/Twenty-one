@@ -47,7 +47,7 @@ export class CardTable {
    * @param {number} numberOfPlayers - the amount of players in the game.
    */
   constructor (numberOfPlayers = 3) {
-    this.#dealer = new Player('Dealer', 15)
+    this.#dealer = new Player('Dealer', 14)
     this.#deck = new Deck()
     this.#discardPile = []
     this.#players = []
@@ -96,7 +96,7 @@ export class CardTable {
    */
   #playOut (dealer, player) {
     while (player.canHit) { // As long as the stand value is not met.
-      if (this.#deck.length === 1) {
+      if (this.#deck.count === 1) {
         this.#deck.add(this.#discardPile)
         this.#deck.shuffle()
       }
@@ -104,9 +104,9 @@ export class CardTable {
     }
 
     // If the player doesn't bust or isn't a natural winner. Play a round with the dealer the same way as the player.
-    if ((player.isNaturalWinner || player.isBusted)) {
+    if (!(player.isNaturalWinner || player.isBusted)) {
       while (dealer.canHit) {
-        if (this.#deck.length === 1) {
+        if (this.#deck.count === 1) {
           this.#deck.add(this.#discardPile)
           this.#deck.shuffle()
         }
@@ -160,7 +160,8 @@ export class CardTable {
         playersResult.push(`${currentPlayer.toString()} ${bustedPlayer} ${this.#dealer.toString()} ${bustedDealer} ${winner}`)
 
         // Throw all the cards from both hands into the discard pile.
-        this.#discardPile.push(currentPlayer.discardHand() + this.#dealer.discardHand())
+        this.#discardPile.push(...currentPlayer.discardHand())
+        this.#discardPile.push(...this.#dealer.discardHand())
       }
       result.push(`Round #${round} --------------- ${playersResult}`)
     }

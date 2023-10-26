@@ -60,6 +60,7 @@ export class Deck {
    */
   add (playingCards) {
     this.#playingCards.push(...playingCards) // The remaining card in the pile + The discarded card deck.
+    playingCards.length = 0
   }
 
   /**

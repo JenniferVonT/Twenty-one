@@ -51,7 +51,7 @@ export class Player {
    * @returns {boolean} - If the player can hit or not.
    */
   get canHit () {
-    if (this.valueOf() < this.#standValue || this.#hand.length === 1) {
+    if (this.valueOf() < this.#standValue || this.#hand.length <= 1) {
       return true
     } else {
       return false
@@ -108,9 +108,9 @@ export class Player {
    * @returns {PlayingCard[]} - returns an array of the players cards on hand.
    */
   discardHand () {
-    const throwHand = this.#hand.map((x) => x)
+    const throwHand = []
+    throwHand.push(...this.#hand)
     this.#hand.length = 0
-
     return throwHand
   }
 
