@@ -9,6 +9,6 @@
 
 import { CardTable } from './CardTable.js'
 
-const gameTest = new CardTable(2)
+const gameTest = new CardTable(3)
 
 console.log(gameTest.playRounds(2))

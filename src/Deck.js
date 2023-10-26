@@ -59,7 +59,7 @@ export class Deck {
    * @param {PlayingCard[]} playingCards - An array representing a deck of cards.
    */
   add (playingCards) {
-    this.#playingCards += playingCards // The remaining cards in the pile += The discarded card deck.
+    this.#playingCards.push(...playingCards) // The remaining card in the pile + The discarded card deck.
   }
 
   /**

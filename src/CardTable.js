@@ -95,23 +95,23 @@ export class CardTable {
    * @param {Player} player - The players round.
    */
   #playOut (dealer, player) {
-    do {
-      if (this.#deck.length > 1) {
-        this.#deck.push(...this.#discardPile)
+    while (player.canHit) { // As long as the stand value is not met.
+      if (this.#deck.length === 1) {
+        this.#deck.add(this.#discardPile)
         this.#deck.shuffle()
       }
       player.addToHand(this.#deal()) // Remove the top card from the deck and give to the players hand.
-    } while (player.canHit) // As long as the stand value is not met.
+    }
 
     // If the player doesn't bust or isn't a natural winner. Play a round with the dealer the same way as the player.
-    if (!player.isBusted || !player.isNaturalWinner) {
-      do {
-        if (this.#deck.length > 1) {
-          this.#deck.push(...this.#discardPile)
+    if (!player.isBusted || player.isNaturalWinner) {
+      while (dealer.canHit) {
+        if (this.#deck.length === 1) {
+          this.#deck.add(this.#discardPile)
           this.#deck.shuffle()
         }
         dealer.addToHand(this.#deal())
-      } while (dealer.canHit)
+      }
     }
   }
 
@@ -124,15 +124,16 @@ export class CardTable {
   playRounds (numberOfRounds = 1) {
     this.#deck.shuffle() // Shuffle the deck first.
     const result = []
-    const playersResult = []
 
     // Start a counter for every round.
     for (let round = 1; round <= numberOfRounds; round++) {
+      const playersResult = []
       // Start a counter for the number of players in the game, every player plays once every round and the dealer plays against all players.
-      for (let player = 1; player <= this.#players.length;) {
+      for (let player = 1; player <= this.#players.length; player++) {
         let winner = ''
+        const index = player - 1
 
-        const currentPlayer = this.#players.shift()
+        const currentPlayer = this.#players[index]
 
         // The player plays a round against the dealer.
         this.#playOut(this.#dealer, currentPlayer)

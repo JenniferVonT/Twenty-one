@@ -77,7 +77,7 @@ export class Player {
    * @returns {boolean} - If the player is a natural winner return true.
    */
   get isNaturalWinner () {
-    if (this.valueOf() === 21 && (this.#hand.length === 5 && this.valueOf() < 21)) {
+    if (this.valueOf() === 21 || (this.#hand.length === 5 && this.valueOf() < 21)) {
       return true
     } else {
       return false
@@ -131,10 +131,10 @@ export class Player {
         number = 12
       } else if (number.charAt(0) === 'K') {
         number = 13
-      } else if (number.charAt(0) === 'A' && (sum + 14) > 21) {
-        number = 1
       } else if (number.charAt(0) === 'A' && (sum + 14) < 21) {
         number = 14
+      } else if (number.charAt(0) === 'A' && (sum + 14) > 21) {
+        number = 1
       }
 
       if (typeof number === 'number') {
