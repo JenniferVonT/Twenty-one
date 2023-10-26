@@ -113,6 +113,8 @@ export class CardTable {
         dealer.addToHand(this.#deal())
       }
     }
+    // Throw all the cards from both hands into the discard pile.
+    this.#discardPile.push(player.discardHand() + this.#dealer.discardHand())
   }
 
   /**
@@ -158,9 +160,6 @@ export class CardTable {
         winner = this.#compareHands(this.#dealer, currentPlayer)
 
         playersResult.push(`${currentPlayer.toString()} ${bustedPlayer} ${this.#dealer.toString()} ${bustedDealer} ${winner}`)
-
-        // Throw all the cards from both hands into the discard pile.
-        this.#discardPile.push(currentPlayer.discardHand() + this.#dealer.discardHand())
       }
       result.push(`Round #${round} --------------- ${playersResult}`)
     }
