@@ -128,7 +128,14 @@ export class CardTable {
     // Start a counter for every round.
     for (let round = 1; round <= numberOfRounds; round++) {
       const playersResult = []
+
+      // Give each player a card in the beginning of each round.
+      for (let i = 0; i < this.#players.length; i++) {
+        this.#players[i].addToHand(this.#deal())
+      }
+
       // Start a counter for the number of players in the game, every player plays once every round and the dealer plays against all players.
+
       for (let player = 1; player <= this.#players.length; player++) {
         let winner = ''
         const index = player - 1

@@ -132,10 +132,10 @@ export class Player {
         sum.push(12)
       } else if (number.charAt(0) === 'K') {
         sum.push(13)
+      } else if (number.charAt(0) === 'A' && (i === 0 || sum.reduce((a, b) => a + b, 0) + 14 > 21)) {
+        sum.push(1)
       } else if (number.charAt(0) === 'A' && (sum.reduce((a, b) => a + b, 0) + 14) <= 21) {
         sum.push(14)
-      } else if (number.charAt(0) === 'A' && (sum.reduce((a, b) => a + b, 0) + 14) > 21) {
-        sum.push(1)
       } else if (number.length === 2) {
         numberFromCard = number.slice(0, 1)
         sum.push(parseInt(numberFromCard))
