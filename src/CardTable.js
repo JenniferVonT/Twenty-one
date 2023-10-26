@@ -96,13 +96,21 @@ export class CardTable {
    */
   #playOut (dealer, player) {
     do {
-      player.addToHand(this.#deck.deal()) // Remove the top card from the deck and give to the players hand.
+      if (this.#deck.length > 1) {
+        this.#deck.push(...this.#discardPile)
+        this.#deck.shuffle()
+      }
+      player.addToHand(this.#deal()) // Remove the top card from the deck and give to the players hand.
     } while (player.canHit) // As long as the stand value is not met.
 
     // If the player doesn't bust or isn't a natural winner. Play a round with the dealer the same way as the player.
     if (!player.isBusted || !player.isNaturalWinner) {
       do {
-        dealer.addToHand(this.#deck.deal())
+        if (this.#deck.length > 1) {
+          this.#deck.push(...this.#discardPile)
+          this.#deck.shuffle()
+        }
+        dealer.addToHand(this.#deal())
       } while (dealer.canHit)
     }
   }

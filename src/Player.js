@@ -108,8 +108,9 @@ export class Player {
    * @returns {PlayingCard[]} - returns an array of the players cards on hand.
    */
   discardHand () {
-    const throwHand = []
-    throwHand.pop(this.#hand)
+    const throwHand = this.#hand.map((x) => x)
+    this.#hand.length = 0
+
     return throwHand
   }
 
