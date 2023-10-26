@@ -51,7 +51,7 @@ export class Player {
    * @returns {boolean} - If the player can hit or not.
    */
   get canHit () {
-    if (this.valueOf() < this.#standValue) {
+    if (this.valueOf() < this.#standValue || this.#hand.length === 1) {
       return true
     } else {
       return false
@@ -77,7 +77,7 @@ export class Player {
    * @returns {boolean} - If the player is a natural winner return true.
    */
   get isNaturalWinner () {
-    if (this.valueOf() === 21 || (this.#hand.length === 5 && this.valueOf() < 21)) {
+    if (this.valueOf() === 21 || (this.#hand.length >= 5 && this.valueOf() < 21)) {
       return true
     } else {
       return false
