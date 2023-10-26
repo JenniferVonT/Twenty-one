@@ -123,27 +123,27 @@ export class Player {
     const sum = []
 
     for (let i = 0; i < this.#hand.length; i++) {
-      let number = this.#hand[i]
+      const number = this.#hand[i]
+      let numberFromCard = []
 
       if (number.charAt(0) === 'J') {
-        number = 11
+        sum.push(11)
       } else if (number.charAt(0) === 'Q') {
-        number = 12
+        sum.push(12)
       } else if (number.charAt(0) === 'K') {
-        number = 13
-      } else if (number.charAt(0) === 'A' && (sum + 14) < 21) {
-        number = 14
-      } else if (number.charAt(0) === 'A' && (sum + 14) > 21) {
-        number = 1
-      }
-
-      if (typeof number === 'number') {
-        sum.push(number)
-      } else {
-        sum.push(parseInt(number.toString()))
+        sum.push(13)
+      } else if (number.charAt(0) === 'A' && (sum.reduce((a, b) => a + b, 0) + 14) <= 21) {
+        sum.push(14)
+      } else if (number.charAt(0) === 'A' && (sum.reduce((a, b) => a + b, 0) + 14) > 21) {
+        sum.push(1)
+      } else if (number.length === 2) {
+        numberFromCard = number.slice(0, 1)
+        sum.push(parseInt(numberFromCard))
+      } else if (number.length === 3) {
+        numberFromCard = number.slice(0, 2)
+        sum.push(parseInt(numberFromCard))
       }
     }
-
     return sum.reduce((a, b) => a + b, 0)
   }
 
