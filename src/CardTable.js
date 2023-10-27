@@ -123,7 +123,7 @@ export class CardTable {
    */
   playRounds (numberOfRounds = 1) {
     // Check if the argument is a valid integer between 1-5.
-    if (!(/^[1-5]$/.test(numberOfRounds))) {
+    if (typeof numberOfRounds !== 'number' && (numberOfRounds < 1 && numberOfRounds > 5)) {
       throw new Error('26')
     }
 

@@ -12,8 +12,8 @@ import { CardTable } from './CardTable.js'
 /**
  * To start the game send the amount of rounds and players as integer numbers.
  *
- * @param {number} numberOfRounds - Number of rounds of the game between 1-5, if nothing is sent, the amount of rounds is set to 1.
- * @param {number} numberOfPlayers - Number of players in the game between 1-7, if nothing is sent, the amount of players is set to 3.
+ * @param {number} numberOfRounds - Number of rounds of the game between 1-5.
+ * @param {number} numberOfPlayers - Number of players in the game between 1-7.
  * @returns {string} - A string with the results from the game played.
  */
 const startGame = function (numberOfRounds, numberOfPlayers) {
@@ -23,7 +23,7 @@ const startGame = function (numberOfRounds, numberOfPlayers) {
 
 const gameArg = process.argv.slice(2)
 
-const playGame21 = startGame(Number(gameArg[0]), Number(gameArg[1]))
+const playGame21 = startGame(Number(gameArg[0] || 1), Number(gameArg[1] || 3))
 
 try {
   console.log(playGame21)
