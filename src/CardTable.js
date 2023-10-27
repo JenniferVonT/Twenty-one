@@ -129,7 +129,7 @@ export class CardTable {
    * Plays the game 21 and returns the results after each round.
    *
    * @param {number} numberOfRounds - The amount of rounds in a game.
-   * @returns {string} - The result of the game.
+   * @returns {object[]} - The result of the game.
    * @throws {Error} - If the number is not an integer or in the correct range 1-5.
    */
   playRounds (numberOfRounds = 1) {
@@ -173,14 +173,14 @@ export class CardTable {
         // Otherwise compare hands and return the result.
         winner = this.#compareHands(this.#dealer, currentPlayer)
 
-        playersResult.push(`${currentPlayer.toString()} ${bustedPlayer} ${this.#dealer.toString()} ${bustedDealer} ${winner}`)
+        playersResult.push(`${currentPlayer.toString()} ${bustedPlayer} ${this.#dealer.toString()} ${bustedDealer} ${winner} `)
 
         // Throw all the cards from both hands into the discard pile.
         this.#discardPile.push(...currentPlayer.discardHand())
         this.#discardPile.push(...this.#dealer.discardHand())
       }
-      result.push(`Round #${round} --------------- ${playersResult}`)
+      result.push(`Round #${round} --------------- ${playersResult}|`)
     }
-    return result.toString()
+    return result
   }
 }
