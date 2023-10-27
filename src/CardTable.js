@@ -90,6 +90,10 @@ export class CardTable {
    * @returns {PlayingCard[]} - The next card in the card deck.
    */
   #deal () {
+    // Check if there is any cards left to be put back into the draw pile.
+    if (this.#discardPile.length === 0 && this.#deck.count === 1) {
+      throw new Error('28')
+    }
     return this.#deck.deal()
   }
 
