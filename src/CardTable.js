@@ -179,7 +179,7 @@ export class CardTable {
         this.#discardPile.push(...currentPlayer.discardHand())
         this.#discardPile.push(...this.#dealer.discardHand())
       }
-      result.push(`Round #${round} --------------- ${playersResult}|`)
+      result.push(`Round #${round} --------------- ${playersResult}`)
     }
     return result
   }
