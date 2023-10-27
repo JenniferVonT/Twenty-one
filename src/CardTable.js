@@ -45,7 +45,7 @@ export class CardTable {
    * Initiate all the players between 1-5.
    *
    * @param {number} numberOfPlayers - the amount of players in the game.
-   * @throws {Error} - If the argument is not a valid integer between 1-7 and 52.
+   * @throws {Error} - If the argument is not a valid integer between 1-7 or 52.
    */
   constructor (numberOfPlayers = 3) {
     // Check if the numberOfPlayers is a valid argument.
@@ -88,6 +88,7 @@ export class CardTable {
    * Deals the next card in the deck.
    *
    * @returns {PlayingCard[]} - The next card in the card deck.
+   * @throws {Error} - If the cards run out.
    */
   #deal () {
     // Check if there is any cards left to be put back into the draw pile.
@@ -129,6 +130,7 @@ export class CardTable {
    *
    * @param {number} numberOfRounds - The amount of rounds in a game.
    * @returns {string} - The result of the game.
+   * @throws {Error} - If the number is not an integer or in the correct range 1-5.
    */
   playRounds (numberOfRounds = 1) {
     // Check if the argument is a valid integer between 1-5.
