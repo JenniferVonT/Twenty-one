@@ -122,6 +122,11 @@ export class CardTable {
    * @returns {string} - The result of the game.
    */
   playRounds (numberOfRounds = 1) {
+    // Check if the argument is a valid integer between 1-5.
+    if (!(/^[1-5]$/.test(numberOfRounds))) {
+      throw new Error('26')
+    }
+
     this.#deck.shuffle() // Shuffle the deck first.
     const result = []
 
