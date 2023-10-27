@@ -47,6 +47,10 @@ export class CardTable {
    * @param {number} numberOfPlayers - the amount of players in the game.
    */
   constructor (numberOfPlayers = 3) {
+    // Check if the numberOfPlayers is a valid argument.
+    if ((typeof numberOfPlayers !== 'number' || numberOfPlayers < 1 || numberOfPlayers > 7) && numberOfPlayers !== 52) {
+      throw new Error('27')
+    }
     this.#dealer = new Player('Dealer', 14)
     this.#deck = new Deck()
     this.#discardPile = []
@@ -123,7 +127,7 @@ export class CardTable {
    */
   playRounds (numberOfRounds = 1) {
     // Check if the argument is a valid integer between 1-5.
-    if (typeof numberOfRounds !== 'number' && (numberOfRounds < 1 && numberOfRounds > 5)) {
+    if (typeof numberOfRounds !== 'number' || (numberOfRounds < 1 || numberOfRounds > 5)) {
       throw new Error('26')
     }
 
